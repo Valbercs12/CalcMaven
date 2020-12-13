@@ -26,12 +26,6 @@ pipeline {
         stage ('Deliver') {
             steps {
                 echo 'build and push image'
-                script {
-                    def siteImage = docker.build("lbaes/spring-rest-calculator:latest", "./")
-                    docker.withRegistry( '', registryCredential ) {
-                        siteImage.push()
-                    }
-                }
                 echo 'site finished'
 
             }
